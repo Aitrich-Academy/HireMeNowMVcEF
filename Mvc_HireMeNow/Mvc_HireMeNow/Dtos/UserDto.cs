@@ -1,5 +1,5 @@
 ﻿using Mvc_HireMeNow.Enums;
-using HireMeNowWebApi.Models;
+using Mvc_HireMeNow.Models;
 using System.ComponentModel.DataAnnotations;
 
 namespace Mvc_HireMeNow.Dtos
