@@ -33,6 +33,7 @@ public partial class Job
     public int? AppliedCount { get; set; }
 
     public string? Status { get; set; }
+
 	[ForeignKey(nameof(Company))]
 	public Guid? CompanyId { get; set; }
 
