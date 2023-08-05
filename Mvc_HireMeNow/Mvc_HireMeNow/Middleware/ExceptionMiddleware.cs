@@ -1,6 +1,6 @@
 using System.Net;
 using System.Text.Json;
-using HireMeNowWebApi.Exceptions;
+using Mvc_HireMeNow.Exceptions;
 
 namespace HireMeNowWebApi.Middleware
 {
@@ -17,51 +17,51 @@ namespace HireMeNowWebApi.Middleware
             _next = next;
         }
 
-        public async Task InvokeAsync(HttpContext context)
-        {
-            try
-            {
-                await _next(context);
-            }
-            catch (NotFoundException ex)
-            {
-                _logger.LogError(ex, ex.Message);
-                context.Response.ContentType = "application/json";
-                context.Response.StatusCode = (int)HttpStatusCode.NotFound;
+        //public async Task InvokeAsync(HttpContext context)
+        //{
+        //    try
+        //    {
+        //        await _next(context);
+        //    }
+        //    catch (NotFoundException ex)
+        //    {
+        //        _logger.LogError(ex, ex.Message);
+        //        context.Response.ContentType = "application/json";
+        //        context.Response.StatusCode = (int)HttpStatusCode.NotFound;
 
-                var st = "";
-                if (ex.StackTrace != null)
-                {
-                    st = ex.StackTrace.ToString();
-                }
+        //        var st = "";
+        //        if (ex.StackTrace != null)
+        //        {
+        //            st = ex.StackTrace.ToString();
+        //        }
            
-                var response = new ApiException(context.Response.StatusCode, ex.Message, st);
-                var options = new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
+        //        var response = new ApiException(context.Response.StatusCode, ex.Message, st);
+        //        var options = new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
 
-                var json = JsonSerializer.Serialize(response, options);
+        //        var json = JsonSerializer.Serialize(response, options);
 
-                await context.Response.WriteAsync(json);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, ex.Message);
-                context.Response.ContentType = "application/json";
-                context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+        //        await context.Response.WriteAsync(json);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        _logger.LogError(ex, ex.Message);
+        //        context.Response.ContentType = "application/json";
+        //        context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
 
-                var st = "";
-                if(ex.StackTrace != null){
-                    st = ex.StackTrace.ToString();
-                }
-                var response = _env.IsDevelopment()
-                    ? new ApiException(context.Response.StatusCode, ex.Message, st)
-                    : new ApiException(context.Response.StatusCode, "Internal Server Error");
+        //        var st = "";
+        //        if(ex.StackTrace != null){
+        //            st = ex.StackTrace.ToString();
+        //        }
+        //        var response = _env.IsDevelopment()
+        //            ? new ApiException(context.Response.StatusCode, ex.Message, st)
+        //            : new ApiException(context.Response.StatusCode, "Internal Server Error");
 
-                var options = new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
+        //        var options = new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
 
-                var json = JsonSerializer.Serialize(response, options);
+        //        var json = JsonSerializer.Serialize(response, options);
 
-                await context.Response.WriteAsync(json);
-            }
-        }
+        //        await context.Response.WriteAsync(json);
+        //    }
+        //}
     }
 }
