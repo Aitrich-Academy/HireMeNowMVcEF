@@ -1,10 +1,35 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Mvc_HireMeNow.Interfaces;
+using Mvc_HireMeNow.Models;
 
 namespace Mvc_HireMeNow.Controllers
 {
 	public class PublicController : Controller
 	{
+		private readonly IPublicService _publicService;
+		public PublicController(IPublicService publicService)
+		{
+			_publicService = publicService;
+		}
+
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public ActionResult Registration(User user)
+		{
+			try
+			{
+				_publicService.Register(user);
+
+				TempData["message"] = "added successfully";
+
+				return RedirectToAction("Login");
+			}
+			catch
+			{
+				return View();
+			}
+		}
 		// GET: PublicController
 		public ActionResult Registration()
 		{
