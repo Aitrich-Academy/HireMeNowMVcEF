@@ -27,9 +27,7 @@ public partial class User
 
     public string? Phone { get; set; }
 
-    public byte[]? PasswordHash { get; set; }
-	public byte[]? PasswordSalt { get; set; }
-
+    public string password { get; set; }
 	public Roles? Role { get; set; }
 
     public string? About { get; set; }
