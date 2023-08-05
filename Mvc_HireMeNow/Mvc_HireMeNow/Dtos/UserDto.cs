@@ -19,7 +19,7 @@ namespace Mvc_HireMeNow.Dtos
 		public byte[]? Image { get; set; }
 		public string? Password { get; set; }
 	
-		public IFormFile? ImageFile { get; set; }
+		//public IFormFile? ImageFile { get; set; }
 		public Roles? Role { get; set; }
 		public string? About { get; set; }
 
