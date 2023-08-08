@@ -21,83 +21,49 @@ namespace Mvc_HireMeNow.Controllers
 			{
 				_publicService.Register(user);
 
-				TempData["message"] = "added successfully";
+				return View(user);
 
-				return RedirectToAction("Login");
+
+
 			}
 			catch
 			{
 				return View();
 			}
 		}
-		// GET: PublicController
+		[HttpGet]
+		// GET:  PublicController
 		public ActionResult Registration()
 		{
 			return View();
 		}
 
-		// GET: PublicController/Details/5
-		public ActionResult Details(int id)
+
+		public ActionResult Login()
 		{
 			return View();
 		}
 
-		// GET: PublicController/Create
-		public ActionResult Create()
-		{
-			return View();
-		}
 
-		// POST: PublicController/Create
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public ActionResult Create(IFormCollection collection)
+		public ActionResult Login(string email, string password)
 		{
 			try
-			{
-				return RedirectToAction(nameof(Index));
-			}
-			catch
-			{
-				return View();
-			}
-		}
 
-		// GET: PublicController/Edit/5
-		public ActionResult Edit(int id)
-		{
-			return View();
-		}
-
-		// POST: PublicController/Edit/5
-		[HttpPost]
-		[ValidateAntiForgeryToken]
-		public ActionResult Edit(int id, IFormCollection collection)
-		{
-			try
 			{
-				return RedirectToAction(nameof(Index));
-			}
-			catch
-			{
-				return View();
-			}
-		}
+				var result = _publicService.LoginJobSeeker(email, password);
+				if (result != null)
+				{
 
-		// GET: PublicController/Delete/5
-		public ActionResult Delete(int id)
-		{
-			return View();
-		}
+					return View("Registration");
+				}
+				else
+				{
+					ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+					return View();
+				}
 
-		// POST: PublicController/Delete/5
-		[HttpPost]
-		[ValidateAntiForgeryToken]
-		public ActionResult Delete(int id, IFormCollection collection)
-		{
-			try
-			{
-				return RedirectToAction(nameof(Index));
 			}
 			catch
 			{
@@ -106,3 +72,7 @@ namespace Mvc_HireMeNow.Controllers
 		}
 	}
 }
+
+		
+			
+

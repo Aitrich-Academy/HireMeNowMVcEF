@@ -1,5 +1,6 @@
 ﻿
 
+using Microsoft.EntityFrameworkCore;
 using Mvc_HireMeNow.Enums;
 using Mvc_HireMeNow.Exceptions;
 using Mvc_HireMeNow.Interfaces;
@@ -9,17 +10,25 @@ namespace Mvc_HireMeNow.Repositories
 {
 	public class UserRepository : IUserRepository
 	{
-		public bool register(User user)
-		{
-			user.Id = Guid.NewGuid();
-			user.Role = Roles.JobSeeker;
+		private HireMeNowDbContext _context;
+		private static User loggedUser = new User();
+		public UserRepository(HireMeNowDbContext context)
+        {
+			_context = context;
+        }
 
-			if (users.Find(e => e.Email == user.Email) == null)
-			{
-				users.Add(user);
-				return true;
-			}
-			throw new UserAlreadyExistException(user.Email);
+		public User login(string email, string password)
+		{
+			User res = _context.Users.Where(e => e.Email == email && e.password == password).FirstOrDefault();
+			return res;
+		}
+
+		public User	 register(User user)
+		{
+			user.Role = Roles.JobSeeker;
+			_context.Users.Add(user);
+			_context.SaveChanges();
+			return user;
 		}
 	}
 }
