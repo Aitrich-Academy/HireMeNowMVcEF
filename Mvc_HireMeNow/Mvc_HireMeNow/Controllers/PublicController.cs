@@ -76,13 +76,10 @@ namespace Mvc_HireMeNow.Controllers
 		{
 			try
 			{
-				return RedirectToAction(nameof(Index));
-			}
-			catch
-			{
-				return View();
-			}
-		}
+				var result = _publicService.LoginJobSeeker(email, password);
+				if (result != null)
+				{
+					HttpContext.Session.SetString("UserId", result.Id.ToString());
 
 		// GET: PublicController/Delete/5
 		public ActionResult Delete(int id)
