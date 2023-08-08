@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Mvc_HireMeNow.Interfaces;
 using Mvc_HireMeNow.Models;
+using System.Collections.Generic;
 
 namespace Mvc_HireMeNow.Controllers
 {
@@ -13,16 +14,16 @@ namespace Mvc_HireMeNow.Controllers
 		IApplicationService _applicationService;
 		public JobSeekerController(IJobService jobService, IUserService userService, IUserRepository userRepository, IApplicationService applicationService)
         {
-			jobService = _jobService;
-			userService = _userService;
-			userRepository = _userRepository;
-			applicationService = _applicationService;
+			_jobService = jobService;
+			_userService = userService;
+			_userRepository = userRepository;
+			_applicationService = applicationService;
 		}
-      
+		public List<Job> jobs { get; set; } = new List<Job>();
 		public IActionResult Alljobs(Guid?selectedJobId = null)
 		{
 
-			List<Job> jobs = _jobService.GetJobs();
+			jobs = _jobService.GetJobs();
 
 			Job selectedJob = new Job();
 			selectedJob = jobs.FirstOrDefault(new Job());
@@ -35,6 +36,27 @@ namespace Mvc_HireMeNow.Controllers
 			ViewBag.selectedJob = selectedJob;
 			return View(jobs);
 		
+		}
+		[HttpPost]
+		public IActionResult ApplyJob(string jobId = null)
+		{
+			if (jobId != null)
+			{
+				var uid = HttpContext.Session.GetString("UserId");
+
+				_applicationService.AddApplication(new Guid(jobId), new Guid(uid));
+
+
+				return RedirectToAction("MyApplications");
+
+			}
+			return RedirectToAction("AllJobs");
+			
+		}
+		public IActionResult Getjobs()
+		{
+			 jobs = _jobService.GetJobs();
+			return View(jobs);
 		}
 	}
 }
