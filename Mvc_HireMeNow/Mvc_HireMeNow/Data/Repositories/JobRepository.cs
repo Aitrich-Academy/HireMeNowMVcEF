@@ -13,8 +13,8 @@ namespace Mvc_HireMeNow.Data.Repositories
         }
         public Job GetJobById(Guid selectedJobId)
 		{
-			Job jobs = _context.Jobs.Where(e => e.Id == selectedJobId).FirstOrDefault();
-			return jobs;
+			Job job = _context.Jobs.Find(selectedJobId);
+			return job;
 		}
 		 
 		public List<Job>GetJobs()

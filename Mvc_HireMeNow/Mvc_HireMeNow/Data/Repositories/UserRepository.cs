@@ -25,7 +25,7 @@ namespace Mvc_HireMeNow.Repositories
 
 		public User	 register(User user)
 		{
-			user.Role = Roles.JobSeeker;
+			user.Role = Roles.JobSeeker; 
 			_context.Users.Add(user);
 			_context.SaveChanges();
 			return user;
@@ -34,7 +34,7 @@ namespace Mvc_HireMeNow.Repositories
 		public User getById(Guid userId)
 		{
 			User user = _context.Users.Where(e => e.Id == userId).FirstOrDefault();
-			return user;
+			 return user;
 		}
 	}
 }
