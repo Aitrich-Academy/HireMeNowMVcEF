@@ -1,5 +1,4 @@
 ﻿@model IEnumerable<Mvc_HireMeNow.Models.Job>
-
 @{
     ViewData["Title"] = "AllJobs";
     Layout = "~/Views/Shared/_JobSeekerLayout.cshtml";
@@ -159,7 +158,7 @@
 		<div class="col-md-7 bg-light text-secondary small p-4 jobs-list">
 			<div class="row">
 				<div class="col-md-6 ">
-					<span class="text-dark font-weight-bold">Showing  Jobs</span>
+					<span class="text-dark font-weight-bold">Showing @Model.Count() Jobs</span>
 
 				</div>
 				<div class="col-md-6">
@@ -172,19 +171,19 @@
 		
 					<div class="col-md-12 p-2 mt-4 job-item" >
 				
-						@*@if(job.Company?.Logo!=null){
-							<img class="img-fluid float-left mr-2" src="@Url.Content(job.Company.Logo)" height="50px" width="50px">
-					}else{*@
+						@if(job.Company?.Logo!=null){
+							<img class="img-fluid float-left mr-2" src="@Url.Content(Convert.ToString(job.Company.Logo))" height="50px" width="50px">
+					}else{
 							<img class="img-fluid float-left mr-2" src="/jobseekerassets/images/Company.png" height="50px" width="50px">
 
-					@*}*@
+					}
             
 						<img class="img-fluid float-right" src="/jobseekerassets/images/archive-minus.png">
 						<h5 class="text-dark"> <a href="/jobseeker/AllJobs?selectedJobId=@job.Id">@job.Title </a></h5>
-						<a href="#">@job.Location</a> .Location : @job.Location<br><br>
+						<a href="#">@job.VacanciesCount</a> .Location : @job.Location<br><br>
 					<p>@job.Description</p>
 					<div class="row">
-							<div class="bg-secondary text-white rounded-pill ml-2 mr-2 pl-2 pr-2">@job.JobType</div>
+							<div class="bg-secondary text-white rounded-pill ml-2 mr-2 pl-2 pr-2">@job.TypeOfWorkPlace</div>
 							<div class="bg-secondary text-white rounded-pill ml-2 mr-2 pl-2 pr-2">$@job.Salary</div>
 							<div class="bg-secondary text-white rounded-pill ml-2 mr-2 pl-2 pr-2">@job.Location</div>
 					
@@ -215,12 +214,12 @@
 					</div>
 				</div>
 				<br><br>
-			<h2>@selectedJob?.Company.Name</h2>
-			<h2 class="clr-code-text">@selectedJob?.Title</h2>
+			<h2>@selectedJob?.Title</h2>
+			<h2 class="clr-code-text">@selectedJob?.Description</h2>
 				<div class="job-specs">
 					<div class="spec">
 						<i>Type of employment </i><br>
-					<b>@selectedJob?.JobType</b>
+					<b>@selectedJob?.TypeOfWorkPlace</b>
 					</div>
 					<div class="spec">
 						<i>Location </i><br>
@@ -234,7 +233,7 @@
 
 					<div class="spec">
 						<i>Onsite/Remote </i><br>
-					<b>@selectedJob?.JobType</b>
+					<b>@selectedJob?.TypeOfWorkPlace</b>
 					</div>
 
 					<div class="spec">
@@ -273,7 +272,7 @@
 						</div>
 					</div>
 				</div>
-				<form method="post" action="applyjob" id="myForm">
+				<form method="post" action="ApplyJob" id="myForm">
 					<input type="hidden" name="jobId" value="@selectedJob?.Id" />
 					
 					</form>
@@ -301,4 +300,3 @@
 		
 	</div>
 </div>
-
