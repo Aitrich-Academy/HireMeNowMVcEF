@@ -55,6 +55,7 @@ namespace Mvc_HireMeNow.Controllers
 				var result = _publicService.LoginJobSeeker(email, password);
 				if (result != null)
 				{
+					HttpContext.Session.SetString("UserId", result.Id.ToString());
 
 					return View("Registration");
 				}

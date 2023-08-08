@@ -30,5 +30,11 @@ namespace Mvc_HireMeNow.Repositories
 			_context.SaveChanges();
 			return user;
 		}
+
+		public User getById(Guid userId)
+		{
+			User user = _context.Users.Where(e => e.Id == userId).FirstOrDefault();
+			return user;
+		}
 	}
 }
