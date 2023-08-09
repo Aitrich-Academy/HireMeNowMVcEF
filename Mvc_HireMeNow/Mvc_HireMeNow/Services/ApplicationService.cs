@@ -25,7 +25,7 @@ namespace Mvc_HireMeNow.Services
 			Application application = new();
 			application.JobId = jobId;
 			application.UserId = userId;
-			application.CompanyId = new Guid("2c8303fb-c1e1-4fa6-a2e1-272472b4beb5");
+			application.CompanyId = job.CompanyId;
 		
 
 
@@ -57,7 +57,7 @@ namespace Mvc_HireMeNow.Services
 
 		List<Application> IApplicationService.GetAll(Guid userId)
 		{
-			throw new NotImplementedException();
+			return _applicationRepository.GetAll(userId);
 		}
 	}
 }

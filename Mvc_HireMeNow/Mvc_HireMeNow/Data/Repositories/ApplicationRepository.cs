@@ -14,7 +14,8 @@ namespace Mvc_HireMeNow.Repositories
         List<Application> _applications=new List<Application>();
 		public List<Application> GetAll(Guid userId)
 		{
-			return _applications.Where(e=>e.User?.Id==userId).ToList();
+			return _context.Applications.Where(e => e.User.Id == userId).Include(x => x.Job).ToList();
+
 		}
 		public void AddApplication(User user, Job job)
 		{

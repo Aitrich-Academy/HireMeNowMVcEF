@@ -58,7 +58,7 @@ namespace Mvc_HireMeNow.Controllers
 			 jobs = _jobService.GetJobs();
 			return View(jobs);
 		}
-
+		[HttpGet]
 		public IActionResult MyApplications(Guid? selectedJobId = null)
 		{
 			var uid = HttpContext.Session.GetString("UserId");
