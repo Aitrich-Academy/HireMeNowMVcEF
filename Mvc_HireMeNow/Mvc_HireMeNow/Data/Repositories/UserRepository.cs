@@ -17,13 +17,13 @@ namespace Mvc_HireMeNow.Repositories
 			_context = context;
         }
 
-		public User login(string email, string password)
+		 public User login(string email, string password)
 		{
 			User res = _context.Users.Where(e => e.Email == email && e.password == password).FirstOrDefault();
 			return res;
 		}
 
-		public User	 register(User user)
+	   	public User	 register(User user)
 		{
 			user.Role = Roles.JobSeeker; 
 			_context.Users.Add(user);
@@ -31,7 +31,7 @@ namespace Mvc_HireMeNow.Repositories
 			return user;
 		}
 
-		public User getById(Guid userId)
+		 public User getById(Guid userId)
 		{
 			User user = _context.Users.Where(e => e.Id == userId).FirstOrDefault();
 			 return user;
