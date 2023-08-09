@@ -8,9 +8,6 @@ namespace Mvc_HireMeNow.Enums
 {
     public enum Roles
     {
-        ADMIN =1,
-        JOB_PROVIDER =2,
-        COMPANY_MEMBER =3,
-        JOBSEEKER =4
+		JobSeeker, Admin, JobProvider, CompanyMember
 	}
 }

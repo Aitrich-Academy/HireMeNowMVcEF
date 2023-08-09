@@ -5,6 +5,254 @@
       "PackagePath": "staticwebassets\\Mvc_HireMeNow.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\JobseekerAssets\\images\\DotsThree.png",
+      "PackagePath": "staticwebassets\\JobseekerAssets\\images\\DotsThree.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\JobseekerAssets\\images\\Frame.png",
+      "PackagePath": "staticwebassets\\JobseekerAssets\\images\\Frame.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\JobseekerAssets\\images\\Group 33789.png",
+      "PackagePath": "staticwebassets\\JobseekerAssets\\images\\Group 33789.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\JobseekerAssets\\images\\Group 5696.png",
+      "PackagePath": "staticwebassets\\JobseekerAssets\\images\\Group 5696.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\JobseekerAssets\\images\\Subtract.png",
+      "PackagePath": "staticwebassets\\JobseekerAssets\\images\\Subtract.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\JobseekerAssets\\images\\archive-minus.png",
+      "PackagePath": "staticwebassets\\JobseekerAssets\\images\\archive-minus.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\JobseekerAssets\\images\\bag.png",
+      "PackagePath": "staticwebassets\\JobseekerAssets\\images\\bag.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\JobseekerAssets\\images\\buildings-2.png",
+      "PackagePath": "staticwebassets\\JobseekerAssets\\images\\buildings-2.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\JobseekerAssets\\images\\bulb.png",
+      "PackagePath": "staticwebassets\\JobseekerAssets\\images\\bulb.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\JobseekerAssets\\images\\call.png",
+      "PackagePath": "staticwebassets\\JobseekerAssets\\images\\call.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\JobseekerAssets\\images\\clipboard-text.png",
+      "PackagePath": "staticwebassets\\JobseekerAssets\\images\\clipboard-text.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\JobseekerAssets\\images\\company.png",
+      "PackagePath": "staticwebassets\\JobseekerAssets\\images\\company.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\JobseekerAssets\\images\\edit-2.png",
+      "PackagePath": "staticwebassets\\JobseekerAssets\\images\\edit-2.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\JobseekerAssets\\images\\exit.png",
+      "PackagePath": "staticwebassets\\JobseekerAssets\\images\\exit.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\JobseekerAssets\\images\\facebook icon.png",
+      "PackagePath": "staticwebassets\\JobseekerAssets\\images\\facebook icon.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\JobseekerAssets\\images\\graduation.png",
+      "PackagePath": "staticwebassets\\JobseekerAssets\\images\\graduation.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\JobseekerAssets\\images\\gray-user.png",
+      "PackagePath": "staticwebassets\\JobseekerAssets\\images\\gray-user.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\JobseekerAssets\\images\\icon filter (1).png",
+      "PackagePath": "staticwebassets\\JobseekerAssets\\images\\icon filter (1).png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\JobseekerAssets\\images\\job.png",
+      "PackagePath": "staticwebassets\\JobseekerAssets\\images\\job.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\JobseekerAssets\\images\\leslie.png",
+      "PackagePath": "staticwebassets\\JobseekerAssets\\images\\leslie.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\JobseekerAssets\\images\\linkedin icon.png",
+      "PackagePath": "staticwebassets\\JobseekerAssets\\images\\linkedin icon.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\JobseekerAssets\\images\\location.png",
+      "PackagePath": "staticwebassets\\JobseekerAssets\\images\\location.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\JobseekerAssets\\images\\mail.png",
+      "PackagePath": "staticwebassets\\JobseekerAssets\\images\\mail.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\JobseekerAssets\\images\\message-2.png",
+      "PackagePath": "staticwebassets\\JobseekerAssets\\images\\message-2.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\JobseekerAssets\\images\\notification-bing.png",
+      "PackagePath": "staticwebassets\\JobseekerAssets\\images\\notification-bing.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\JobseekerAssets\\images\\phone.png",
+      "PackagePath": "staticwebassets\\JobseekerAssets\\images\\phone.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\JobseekerAssets\\images\\profile.png",
+      "PackagePath": "staticwebassets\\JobseekerAssets\\images\\profile.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\JobseekerAssets\\images\\resume.png",
+      "PackagePath": "staticwebassets\\JobseekerAssets\\images\\resume.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\JobseekerAssets\\images\\setting-2.png",
+      "PackagePath": "staticwebassets\\JobseekerAssets\\images\\setting-2.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\JobseekerAssets\\images\\sms.png",
+      "PackagePath": "staticwebassets\\JobseekerAssets\\images\\sms.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\JobseekerAssets\\images\\twitter icon.png",
+      "PackagePath": "staticwebassets\\JobseekerAssets\\images\\twitter icon.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\JobseekerAssets\\images\\upload 1.png",
+      "PackagePath": "staticwebassets\\JobseekerAssets\\images\\upload 1.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\JobseekerAssets\\images\\user.png",
+      "PackagePath": "staticwebassets\\JobseekerAssets\\images\\user.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\JobseekerAssets\\js\\profileScript.js",
+      "PackagePath": "staticwebassets\\JobseekerAssets\\js\\profileScript.js"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\PublicAssets\\css\\home.css",
+      "PackagePath": "staticwebassets\\PublicAssets\\css\\home.css"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\PublicAssets\\css\\landingStyle.css",
+      "PackagePath": "staticwebassets\\PublicAssets\\css\\landingStyle.css"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\PublicAssets\\css\\loginStyle.css",
+      "PackagePath": "staticwebassets\\PublicAssets\\css\\loginStyle.css"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\PublicAssets\\images\\Company Logo (2).png",
+      "PackagePath": "staticwebassets\\PublicAssets\\images\\Company Logo (2).png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\PublicAssets\\images\\Company Logo (3).png",
+      "PackagePath": "staticwebassets\\PublicAssets\\images\\Company Logo (3).png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\PublicAssets\\images\\Company Logo (4).png",
+      "PackagePath": "staticwebassets\\PublicAssets\\images\\Company Logo (4).png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\PublicAssets\\images\\Company Logo (5).png",
+      "PackagePath": "staticwebassets\\PublicAssets\\images\\Company Logo (5).png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\PublicAssets\\images\\Company Logo (6).png",
+      "PackagePath": "staticwebassets\\PublicAssets\\images\\Company Logo (6).png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\PublicAssets\\images\\Company Logo.png",
+      "PackagePath": "staticwebassets\\PublicAssets\\images\\Company Logo.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\PublicAssets\\images\\Decoration.png",
+      "PackagePath": "staticwebassets\\PublicAssets\\images\\Decoration.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\PublicAssets\\images\\Google symbol.png",
+      "PackagePath": "staticwebassets\\PublicAssets\\images\\Google symbol.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\PublicAssets\\images\\Group 1126.png",
+      "PackagePath": "staticwebassets\\PublicAssets\\images\\Group 1126.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\PublicAssets\\images\\Group 239625.png",
+      "PackagePath": "staticwebassets\\PublicAssets\\images\\Group 239625.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\PublicAssets\\images\\Group 5689.png",
+      "PackagePath": "staticwebassets\\PublicAssets\\images\\Group 5689.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\PublicAssets\\images\\Headline.png",
+      "PackagePath": "staticwebassets\\PublicAssets\\images\\Headline.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\PublicAssets\\images\\Login with google shape.png",
+      "PackagePath": "staticwebassets\\PublicAssets\\images\\Login with google shape.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\PublicAssets\\images\\LoginPageImg.png",
+      "PackagePath": "staticwebassets\\PublicAssets\\images\\LoginPageImg.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\PublicAssets\\images\\Logo.png",
+      "PackagePath": "staticwebassets\\PublicAssets\\images\\Logo.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\PublicAssets\\images\\Register Img.png",
+      "PackagePath": "staticwebassets\\PublicAssets\\images\\Register Img.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\PublicAssets\\images\\add-group.png",
+      "PackagePath": "staticwebassets\\PublicAssets\\images\\add-group.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\PublicAssets\\images\\facebook.png",
+      "PackagePath": "staticwebassets\\PublicAssets\\images\\facebook.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\PublicAssets\\images\\gray-user.png",
+      "PackagePath": "staticwebassets\\PublicAssets\\images\\gray-user.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\PublicAssets\\images\\instagram.png",
+      "PackagePath": "staticwebassets\\PublicAssets\\images\\instagram.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\PublicAssets\\images\\linkedin.png",
+      "PackagePath": "staticwebassets\\PublicAssets\\images\\linkedin.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\PublicAssets\\images\\loginBackground.PNG",
+      "PackagePath": "staticwebassets\\PublicAssets\\images\\loginBackground.PNG"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\PublicAssets\\images\\main-img.png",
+      "PackagePath": "staticwebassets\\PublicAssets\\images\\main-img.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\PublicAssets\\images\\twitter.png",
+      "PackagePath": "staticwebassets\\PublicAssets\\images\\twitter.png"
+    },
+    {
+      "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\PublicAssets\\images\\youtube.png",
+      "PackagePath": "staticwebassets\\PublicAssets\\images\\youtube.png"
+    },
+    {
       "Id": "C:\\Users\\aitrich\\Desktop\\c#\\HireMeNowMVcEF\\Mvc_HireMeNow\\Mvc_HireMeNow\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

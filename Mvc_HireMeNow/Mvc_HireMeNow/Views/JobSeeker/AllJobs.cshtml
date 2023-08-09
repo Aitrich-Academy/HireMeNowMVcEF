@@ -149,6 +149,11 @@
 
 	function submitForm() {
 		document.getElementById("myForm").submit();
+		var selectedJobId = "@selectedJob?.Id"; // Assuming you're passing the selected job's ID from the server
+
+        // Set the selected job's ID in the hidden input field
+        document.getElementById("jobIdInput").value = selectedJobId;
+
 	}
 </script>
 
@@ -273,8 +278,7 @@
 					</div>
 				</div>
 				<form method="post" action="ApplyJob" id="myForm">
-					<input type="hidden" name="jobId" value="@selectedJob?.Id" />
-					
+					<input type="hidden" name="jobId" id="jobIdInput" value="@selectedJob?.Id">
 					</form>
 				<button class="btn btn-primary " style="width: 40%;" onclick="showConfirmation()">
 					Apply Job

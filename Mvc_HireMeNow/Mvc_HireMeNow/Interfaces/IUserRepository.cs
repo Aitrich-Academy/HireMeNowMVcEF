@@ -4,6 +4,8 @@ namespace Mvc_HireMeNow.Interfaces
 {
 	public interface IUserRepository
 	{
-		bool register(User user);
+		User getById(Guid userId);
+		User login(string email, string password);
+		User register(User user);
 	}
 }
