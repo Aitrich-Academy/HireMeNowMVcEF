@@ -21,5 +21,6 @@ namespace Mvc_HireMeNow.Services
 		{
 			return _jobRepository.GetJobs();
 		}
+
 	}
 }

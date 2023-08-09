@@ -10,15 +10,22 @@ namespace Mvc_HireMeNow.Extensions
 	public static class ApplicationServiceExtensions
 	{
 		public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration config)
-        {
-            services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
+		{
+			services.AddDbContextPool<HireMeNowDbContext>(options =>
+			options.UseSqlServer(config.GetConnectionString("DefaultConnection"))
+		);
+			
+			services.AddScoped<IPublicService, PublicService>();
+			services.AddScoped<IUserRepository, UserRepository>();
 
-            services.AddDbContext<HireMeNowDbContext>(options =>
-				options.UseSqlServer(config.GetConnectionString("DefaultConnection"))
-			);
-
-            services.AddScoped<ICompanyService, CompanyService>();
-            services.AddScoped<ICompanyRepository, CompanyRepository>();
+			services.AddScoped<IUserService, UserService>();
+			services.AddScoped<IJobService, JobService>();
+			services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
+			services.AddScoped<IJobRepository, JobRepository>();
+			services.AddScoped<IApplicationService, ApplicationService>() ;
+			services.AddScoped<IApplicationRepository, ApplicationRepository>();
+			services.AddScoped<ICompanyService, CompanyService>();
+			services.AddScoped<ICompanyRepository, CompanyRepository>();
 
             return services;
 			 

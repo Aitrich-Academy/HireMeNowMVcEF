@@ -17,5 +17,11 @@ namespace Mvc_HireMeNow.Data.Repositories
 		{
 			return _context.Jobs.ToList();
 		}
+		public bool  Create(Job job)
+		{
+			 _context.Jobs.AddAsync(job);
+			_context.SaveChanges();
+			return true;
+		}
 	}
 }

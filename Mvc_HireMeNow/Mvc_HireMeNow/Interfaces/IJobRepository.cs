@@ -7,7 +7,7 @@ namespace Mvc_HireMeNow.Interfaces
     public interface IJobRepository
     {
 		Job GetJobById(Guid selectedJobId);
-
+		bool Create(Job job);
 		//      Job PostJob(Job job);
 		//Job Update(Job job);
 		List<Job> GetJobs();
