@@ -25,6 +25,8 @@ namespace Mvc_HireMeNow.Extensions
 			services.AddScoped<IJobRepository, JobRepository>();
 			services.AddScoped<IApplicationService, ApplicationService>() ;
 			services.AddScoped<IApplicationRepository, ApplicationRepository>();
+			services.AddScoped<ICompanyService, CompanyService>();
+			services.AddScoped<ICompanyRepository, CompanyRepository>();
 
 			return services;
 			 

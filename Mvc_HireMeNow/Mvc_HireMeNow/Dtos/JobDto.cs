@@ -6,7 +6,7 @@ namespace Mvc_HireMeNow.Dtos
 {
 	public class JobDto
 	{
-		public Guid Id { get; set; }
+		public Guid? Id { get; set; }
 		public string? Title { get; set; }
 		public string? Description { get; set; }
 		public string? Location { get; set; }
@@ -20,10 +20,11 @@ namespace Mvc_HireMeNow.Dtos
 		//[JsonIgnore]
 		//public Company? Company { get; set; }
 
-		public JobDto( string title, string description, string location, string salary, Guid companyId, string company, Guid? id = null)
+		public JobDto( string title, string description, string location, string salary, Guid companyId, string company, Guid? id=null)
 		{
-			Id=id??Guid.NewGuid();
-            Title = title;
+			Id=id ?? new Guid();
+			
+			Title = title;
 			Description = description;
 			Location = location;
 			Salary = salary;
