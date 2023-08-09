@@ -12,8 +12,8 @@ using Mvc_HireMeNow.Models;
 namespace Mvc_HireMeNow.Migrations
 {
     [DbContext(typeof(HireMeNowDbContext))]
-    [Migration("20230802045939_MVCMIgration")]
-    partial class MVCMIgration
+    [Migration("20230805053210_migrated")]
+    partial class migrated
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -331,12 +331,6 @@ namespace Mvc_HireMeNow.Migrations
                     b.Property<string>("Location")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("PasswordHash")
-                        .HasColumnType("varbinary(max)");
-
-                    b.Property<byte[]>("PasswordSalt")
-                        .HasColumnType("varbinary(max)");
-
                     b.Property<string>("Phone")
                         .HasColumnType("nvarchar(max)");
 
@@ -344,6 +338,10 @@ namespace Mvc_HireMeNow.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("password")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
