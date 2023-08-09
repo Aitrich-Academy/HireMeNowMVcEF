@@ -58,5 +58,23 @@ namespace Mvc_HireMeNow.Controllers
 			 jobs = _jobService.GetJobs();
 			return View(jobs);
 		}
+		[HttpGet]
+		public IActionResult MyApplications(Guid? selectedJobId = null)
+		{
+			var uid = HttpContext.Session.GetString("UserId");
+			List<Application> jobs = _applicationService.GetAll(new Guid(uid));
+
+			Job selectedJob = new Job();
+			selectedJob = jobs.FirstOrDefault()?.Job;
+			if (selectedJobId != null)
+			{
+				selectedJob = _jobService.getJobById(selectedJobId.Value);
+
+			}
+
+			ViewBag.selectedJob = selectedJob;
+			return View(jobs);
+		}
+
 	}
 }

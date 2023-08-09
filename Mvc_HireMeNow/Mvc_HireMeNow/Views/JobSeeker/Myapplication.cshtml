@@ -1,9 +1,10 @@
-﻿@model IEnumerable<Mvc_HireMeNow.Models.Job>
+﻿@model IEnumerable<Mvc_HireMeNow.Models.Application>
+
 @{
-    ViewData["Title"] = "AllJobs";
+    ViewData["Title"] = "MyApplications";
     Layout = "~/Views/Shared/_JobSeekerLayout.cshtml";
-	var selectedJob = ViewBag.selectedJob as Job;
 }
+
 <style>
 
 	.proImg {
@@ -18,8 +19,8 @@
 		position: relative;
 		top: 61px;
 	}
+
 	.right {
-		
 		box-shadow: -4px -2px 4px 1px #0000001c;
 	}
 
@@ -36,7 +37,6 @@
 	}
 
 	.job-specs {
-		
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
@@ -45,7 +45,7 @@
 		align-items: center;
 	}
 
-	.spec{
+	.spec {
 		width: 50%;
 	}
 
@@ -65,32 +65,33 @@
 		padding: 5px;
 	}
 
-	.jobs-list{
+	.jobs-list {
 		max-height: 700px;
 		overflow: scroll;
 	}
 
-	.jobs-list::-webkit-scrollbar {
-		width: 0.5em;
-	}
+		.jobs-list::-webkit-scrollbar {
+			width: 0.5em;
+		}
 
-	.jobs-list::-webkit-scrollbar-track {
-		background-color: #f1f1f1;
-	}
+		.jobs-list::-webkit-scrollbar-track {
+			background-color: #f1f1f1;
+		}
 
-	.jobs-list::-webkit-scrollbar-thumb {
-		background-color: #888;
-	}
-	.job-item:hover{
+		.jobs-list::-webkit-scrollbar-thumb {
+			background-color: #888;
+		}
+
+	.job-item:hover {
 		box-shadow: 0px 2px 4px 0px #606060c2;
 	}
 
-	.tab-content{
-		height:200px;
-		overflow:scroll;
+	.tab-content {
+		height: 200px;
+		overflow: scroll;
 	}
 
-	.desc{
+	.desc {
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
@@ -113,12 +114,10 @@
 	}
 
 	.confirmation-box {
-		
+		background-color: #fff;
 		padding: 20px;
 		border-radius: 5px;
 		text-align: center;
-		background-image: linear-gradient(to bottom right, #149bf1b8, #94f1e6d1);
-		font-family: serif;
 	}
 
 		.confirmation-box h2 {
@@ -135,12 +134,10 @@
 
 </style>
 <script>
-	var selectedJobId=0;
+	var selectedJobId = 0;
 	function showConfirmation() {
-		
+
 		$("#confirmationOverlay").fadeIn();
-		var divElement = document.getElementById('confirmationOverlay');
-		divElement.style.display = 'flex';
 	}
 
 	function hideConfirmation() {
@@ -149,11 +146,6 @@
 
 	function submitForm() {
 		document.getElementById("myForm").submit();
-		var selectedJobId = "@selectedJob?.Id"; // Assuming you're passing the selected job's ID from the server
-
-        // Set the selected job's ID in the hidden input field
-        document.getElementById("jobIdInput").value = selectedJobId;
-
 	}
 </script>
 
@@ -171,85 +163,88 @@
 				</div>
 			</div>
 			<div class="row">
-			 @foreach (var job in Model)
-            {
-		
-					<div class="col-md-12 p-2 mt-4 job-item" >
-				
-						@if(job.Company?.Logo!=null){
-							<img class="img-fluid float-left mr-2" src="@Url.Content(Convert.ToString(job.Company.Logo))" height="50px" width="50px">
-					}else{
-							<img class="img-fluid float-left mr-2" src="/jobseekerassets/images/Company.png" height="50px" width="50px">
+	@foreach (var job in Model)
+	{
 
-					}
-            
-						<img class="img-fluid float-right" src="/jobseekerassets/images/archive-minus.png">
-						<h5 class="text-dark"> <a href="/jobseeker/AllJobs?selectedJobId=@job.Id">@job.Title </a></h5>
-						<a href="#">@job.VacanciesCount</a> .Location : @job.Location<br><br>
-					<p>@job.Description</p>
-					<div class="row">
-							<div class="bg-secondary text-white rounded-pill ml-2 mr-2 pl-2 pr-2">@job.TypeOfWorkPlace</div>
-							<div class="bg-secondary text-white rounded-pill ml-2 mr-2 pl-2 pr-2">$@job.Salary</div>
-							<div class="bg-secondary text-white rounded-pill ml-2 mr-2 pl-2 pr-2">@job.Location</div>
-					
-					
-					</div>
-				</div>
-			
+					<div class="col-md-12 p-2 mt-4 job-item">
+			@{
+				if (job.Job?.Company?.Logo!=null)
+				{
+								<img class="img-fluid float-left mr-2" src="@Url.Content(Convert.ToString(job.Job?.Company.Logo))" height="50px" width="50px">
+				}
+				else
+				{
+								<img class="img-fluid float-left mr-2" src="/jobseekerassets/images/company.png" height="50px" width="50px">
+
+				}
 			}
+						<img class="img-fluid float-right" src="/jobseekerassets/images/archive-minus.png">
+						<h5 class="text-dark"> <a href="/jobseeker/AllJobs?selectedJobId=@job.Id">@job.Job?.Title </a></h5>
+						<a href="#">@job.Job?.AppliedCount</a> .Location : @job.Job?.Location<br><br>
+						<p>@job.Job?.Description</p>
+						<div class="row">
+							<div class="bg-secondary text-white rounded-pill ml-2 mr-2 pl-2 pr-2">@job.Job?.TypeOfWorkPlace</div>
+							<div class="bg-secondary text-white rounded-pill ml-2 mr-2 pl-2 pr-2">$@job.Job?.Salary</div>
+							<div class="bg-secondary text-white rounded-pill ml-2 mr-2 pl-2 pr-2">@job.Job?.Location</div>
+
+
+						</div>
+					</div>
+
+	}
 			</div>
-		</div>
-		<div class="col-md-5 bg-white  right" align="center">
-			
-				<div class="header">
-					<div class="proImg">
-					@{
-						
-						if (selectedJob?.Company?.Logo!=null)
-						{
-							<img class="img-fluid float-left mr-2" src="@selectedJob.Company.Logo" height="100px" width="100px">
-						}
-						else
-						{
-							<img class="img-fluid float-left mr-2" src="/jobseekerassets/images/company.png" height="100px" width="100px">
+        </div>	@*<div class="col-md-5 bg-white  right" align="center">
 
-						}
-					}
-						
-					</div>
-				</div>
-				<br><br>
-			<h2>@selectedJob?.Title</h2>
-			<h2 class="clr-code-text">@selectedJob?.Description</h2>
-				<div class="job-specs">
-					<div class="spec">
-						<i>Type of employment </i><br>
-					<b>@selectedJob?.TypeOfWorkPlace</b>
-					</div>
-					<div class="spec">
-						<i>Location </i><br>
-					<b>@selectedJob?.Location</b>
-					</div>
+        <div class="header">
+        <div class="proImg">
+        @{
 
-					<div class="spec">
-						<i>Experience Level </i><br>
-					<b>@selectedJob?.Experience</b>
-					</div>
+        if (selectedJob?.Company?.Image!=null)
+        {
+        <img class="img-fluid float-left mr-2" src="@selectedJob.Company.Image" height="60px" width="60px">
+        }
+        else
+        {
+        <img class="img-fluid float-left mr-2" src="~/jobseekerassets/images/company.png" height="60px" width="60px">
 
-					<div class="spec">
-						<i>Onsite/Remote </i><br>
-					<b>@selectedJob?.TypeOfWorkPlace</b>
-					</div>
+        }
+        }
 
-					<div class="spec">
-						<i>Salary Range </i><br>
-					<b>$ @selectedJob?.Salary</b>
-					</div>
+        </div>
+        </div>
+        <br><br>
+        <h2>@selectedJob?.CompanyName</h2>
+        <h2 class="clr-code-text">@selectedJob?.Title</h2>
+        <div class="job-specs">
+        <div class="spec">
+        <i>Type of employment </i><br>
+        <b>@selectedJob?.Type</b>
+        </div>
+        <div class="spec">
+        <i>Location </i><br>
+        <b>@selectedJob?.Location</b>
+        </div>
 
+        <div class="spec">
+        <i>Experience Level </i><br>
+        <b>@selectedJob?.Experience</b>
+        </div>
 
-				</div>
+        <div class="spec">
+        <i>Onsite/Remote </i><br>
+        <b>@selectedJob?.TypeOfWork</b>
+        </div>
 
-				<div class="desc">
+        <div class="spec">
+        <i>Salary Range </i><br>
+        <b>$ @selectedJob?.Salary</b>
+        </div>
+
+	
+
+			</div>
+
+			<div class="desc">
 				<div class="container" style="">
 					<ul class="nav nav-tabs">
 						<li class="nav-item">
@@ -277,30 +272,30 @@
 						</div>
 					</div>
 				</div>
-				<form method="post" action="ApplyJob" id="myForm">
-					<input type="hidden" name="jobId" id="jobIdInput" value="@selectedJob?.Id">
-					</form>
+				<form method="post" action="applyjob" id="myForm">
+					<input type="hidden" name="jobId" value="@selectedJob.Id" />
+
+				</form>
 				<button class="btn btn-primary " style="width: 40%;" onclick="showConfirmation()">
 					Apply Job
 				</button>
-					
+
 				<button class="btn " style="width: 40%;background-color: #ECECEC;">
 					Send Message
 				</button>
-				
+
 
 			</div>
 
-			</div>
+		</div>*@
 		<div id="confirmationOverlay" class="overlay">
 			<div class="confirmation-box">
-				<h2>Are you sure you want to Apply this Job ?</h2>
+				<h2>Are you sure you want to submit the form?</h2>
 				<div class="buttons">
 					<button onclick="submitForm()">Yes</button>
 					<button onclick="hideConfirmation()">No</button>
 				</div>
 			</div>
 		</div>
-		
+
 	</div>
-</div>

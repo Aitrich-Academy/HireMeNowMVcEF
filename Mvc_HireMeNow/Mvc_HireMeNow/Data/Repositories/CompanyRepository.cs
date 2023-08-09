@@ -31,7 +31,7 @@ namespace Mvc_HireMeNow.Data.Repositories
         public bool registerMember(User user)
         {
             user.Id = new Guid();
-            user.Role = Roles.COMPANY_MEMBER;
+            user.Role = Roles.CompanyMember;
 
             if (context.Users.Where(e => user.Email == e.Email).Count() <= 0)
             {

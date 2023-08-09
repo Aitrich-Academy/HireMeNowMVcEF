@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Mvc_HireMeNow.Models;
 
@@ -11,9 +12,11 @@ using Mvc_HireMeNow.Models;
 namespace Mvc_HireMeNow.Migrations
 {
     [DbContext(typeof(HireMeNowDbContext))]
-    partial class HireMeNowDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230809091131_inital2")]
+    partial class inital2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -178,7 +181,7 @@ namespace Mvc_HireMeNow.Migrations
 
             modelBuilder.Entity("Mvc_HireMeNow.Models.Job", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<Guid?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
