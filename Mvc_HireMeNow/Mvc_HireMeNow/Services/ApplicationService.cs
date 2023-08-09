@@ -1,35 +1,15 @@
 ﻿
 
-using Mvc_HireMeNow.Data.Repositories;
 using Mvc_HireMeNow.Interfaces;
 using Mvc_HireMeNow.Models;
-using Mvc_HireMeNow.Repositories;
 
 namespace Mvc_HireMeNow.Services
 {
 	public class ApplicationService : IApplicationService
 	{
-       	public IUserRepository _userRepository;
-		public  IJobRepository _jobRepository;
-		public IApplicationRepository _applicationRepository;
-        public ApplicationService(IUserRepository userRepository, IJobRepository jobRepository, IApplicationRepository applicationRepository)
-        {
-			_userRepository = userRepository;
-			_jobRepository = jobRepository;
-			_applicationRepository = applicationRepository;
-
-		}
-        public void AddApplication(Guid userId, Guid jobId)
+		public void AddApplication(Guid userId, Guid jobId)
 		{
-			Job job = _jobRepository.GetJobById(jobId);
-			Application application = new();
-			application.JobId = jobId;
-			application.UserId = userId;
-			application.CompanyId = new Guid("2c8303fb-c1e1-4fa6-a2e1-272472b4beb5");
-		
-
-
-			_applicationRepository.AddApplication(application);
+			throw new NotImplementedException();
 		}
 
 		//public IUserRepository _userRepository;
