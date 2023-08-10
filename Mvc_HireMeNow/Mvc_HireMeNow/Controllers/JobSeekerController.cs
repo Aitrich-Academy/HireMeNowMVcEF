@@ -48,7 +48,7 @@ namespace Mvc_HireMeNow.Controllers
 			{
 				var uid = HttpContext.Session.GetString("UserId");
 
-				_applicationService.AddApplication(new Guid(jobId), new Guid(uid));
+				_applicationService.AddApplication( new Guid(uid), new Guid(jobId));
 
 
 				return RedirectToAction("MyApplications");
