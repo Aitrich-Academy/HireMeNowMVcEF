@@ -5,6 +5,7 @@ using Mvc_HireMeNow.Enums;
 using Mvc_HireMeNow.Exceptions;
 using Mvc_HireMeNow.Interfaces;
 using Mvc_HireMeNow.Models;
+using System;
 
 namespace Mvc_HireMeNow.Repositories
 {
@@ -33,8 +34,56 @@ namespace Mvc_HireMeNow.Repositories
 
 		 public User getById(Guid userId)
 		{
-			User user = _context.Users.Where(e => e.Id == userId).FirstOrDefault();
+			User user = _context.Users.Where(e => e.Id == userId).Include(x=>x.Skills)
+				.Include(x => x.Experiences)
+				.Include(x => x.Qualifications).IgnoreAutoIncludes().FirstOrDefault();
 			 return user;
+		}
+
+		
+
+		public void AddQualification(Qualification qualification, Guid uid)
+		{
+			Qualification education = new Qualification();
+			education.UserId = uid;
+			education.Mark = qualification.Mark;
+			education.Title = qualification.Title;
+			education.University = qualification.University;
+			education.YearOfPassout = qualification.YearOfPassout;
+			
+			_context.Qualifications.Add(education);
+			_context.SaveChanges();
+		}
+
+		public void AddExperience(Experience experience, Guid guid)
+		{
+			experience.UserId =guid;
+			_context.Experiences.Add(experience);
+			_context.SaveChanges();
+		}
+
+		public void AddSkill(Skill skills, Guid guid)
+		{
+			skills.UserId = guid;
+			_context.Skills.Add(skills);
+			_context.SaveChanges();
+		}
+
+		
+
+		public void addAbout(string? about, Guid id)
+		{
+			User userToUpdate = _context.Users.FirstOrDefault(u => u.Id == id);
+
+
+			// Update the properties with new data
+			userToUpdate.About = about;
+		
+			// Update other properties as needed
+
+			// Save changes to the database
+			_context.SaveChanges();
+
 		}
 	}
 }
