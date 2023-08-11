@@ -36,5 +36,19 @@ namespace Mvc_HireMeNow.Repositories
 			_context.Applications.Add(application);
 			_context.SaveChanges();
 		}
+		public List<Application> GetAllApplication(Guid CompanyId)
+		{
+			return _context.Applications.Where(e => e.User.CompanyId == CompanyId).Include(a => a.User)
+				.Include(a => a.Company)
+				.Include(a => a.Job).ToList();
+
+			//var list= _context.Applications.Where(e => e.User.CompanyId == CompanyId).ToList();
+			//list.ForEach(x => { x.Job = _context.Jobs.Find(x.JobId); }) ;
+			//return list;
+		}
+		public Application GetApplication(Guid appid)
+		{
+			return _context.Applications.FirstOrDefault(e => e.Id == appid);
+		}
 	}
 }

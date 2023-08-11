@@ -19,7 +19,7 @@ namespace Mvc_HireMeNow.Services
 			_applicationRepository = applicationRepository;
 
 		}
-        public void AddApplication(Guid userId, Guid jobId)
+        public void AddApplication(Guid jobId, Guid userId)
 		{
 			Job job = _jobRepository.GetJobById(jobId);
 			if (job != null)
