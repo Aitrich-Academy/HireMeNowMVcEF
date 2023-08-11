@@ -1,5 +1,7 @@
 ﻿
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Mvc_HireMeNow.Dtos;
 using Mvc_HireMeNow.Interfaces;
 using Mvc_HireMeNow.Models;
 using System.Collections.Generic;
@@ -12,12 +14,14 @@ namespace Mvc_HireMeNow.Controllers
 		IUserService _userService;
 		IUserRepository _userRepository;
 		IApplicationService _applicationService;
-		public JobSeekerController(IJobService jobService, IUserService userService, IUserRepository userRepository, IApplicationService applicationService)
+		IMapper mapper;
+		public JobSeekerController(IJobService jobService, IUserService userService, IUserRepository userRepository, IApplicationService applicationService, IMapper _maper)
         {
 			_jobService = jobService;
 			_userService = userService;
 			_userRepository = userRepository;
 			_applicationService = applicationService;
+			mapper=_maper;
 		}
 		public List<Job> jobs { get; set; } = new List<Job>();
 		public IActionResult Alljobs(Guid?selectedJobId = null)
@@ -44,7 +48,7 @@ namespace Mvc_HireMeNow.Controllers
 			{
 				var uid = HttpContext.Session.GetString("UserId");
 
-				_applicationService.AddApplication(new Guid(jobId), new Guid(uid));
+				_applicationService.AddApplication( new Guid(uid), new Guid(jobId));
 
 
 				return RedirectToAction("MyApplications");
@@ -52,6 +56,27 @@ namespace Mvc_HireMeNow.Controllers
 			}
 			return RedirectToAction("AllJobs");
 			
+		}
+		public IActionResult Profile()
+		{
+			var uid = HttpContext.Session.GetString("UserId");
+			User user = _userService.GetById(new Guid(uid));
+			UserProfileDto userProfileDto = mapper.Map<UserProfileDto>(user);
+			return View(userProfileDto);
+		}
+		[HttpPost]
+		public IActionResult Profile(UserProfileDto updateUser)
+		{
+			var uid = HttpContext.Session.GetString("UserId");
+			User user = _userService.GetById(new Guid(uid));
+			user.About = updateUser.About ?? user.About;
+			_userService.Addabout(user.About,user.Id);
+			_userService.AddQualification(updateUser.qualification,new Guid(uid));
+			_userService.AddSkill(updateUser.skill, new Guid(uid));
+			_userService.AddExperience(updateUser.experience, new Guid(uid));
+
+
+			return RedirectToAction("Profile");
 		}
 		public IActionResult Getjobs()
 		{

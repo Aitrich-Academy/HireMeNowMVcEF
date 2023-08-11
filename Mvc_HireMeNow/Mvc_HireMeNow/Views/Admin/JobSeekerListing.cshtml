@@ -1,0 +1,229 @@
+﻿@model IEnumerable<Mvc_HireMeNow.Models.User>
+
+@{
+    ViewData["Title"] = "JobSeekerListing";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<style>
+    body {
+        background-color: #F2F2F2;
+        position: relative;
+        overflow-x: hidden;
+    }
+
+    #sidebar {
+        background-color: #40189D;
+    }
+
+    #sidebar-div .nav .nav-item {
+        width: 100%;
+        position: relative;
+    }
+
+        #sidebar-div .nav .nav-item:hover {
+            background-color: #F2F2F2;
+            color: black;
+            border-top-left-radius: 25px;
+            border-bottom-left-radius: 25px;
+        }
+
+    ul.nav .nav-item .nav-link, ul.nav .nav-item .nav-link:visited {
+        color: rgb(255, 255, 255) !important;
+    }
+
+        ul.nav .nav-item .nav-link:hover, ul.nav .nav-item .nav-link:active {
+            color: rgb(0, 0, 0) !important;
+        }
+
+    .nav-item:hover::after {
+        content: "";
+        position: absolute;
+        background-color: transparent;
+        bottom: 100%;
+        right: 0;
+        height: 100%;
+        width: 45px;
+        border-bottom-right-radius: 30px;
+        box-shadow: 0 30px 0 0 #F2F2F2;
+    }
+
+    .nav-item:hover::before {
+        content: "";
+        position: absolute;
+        background-color: transparent;
+        top: 100%;
+        right: 0;
+        height: 100%;
+        width: 45px;
+        border-top-right-radius: 30px;
+        box-shadow: 0 -30px 0 0 #F2F2F2;
+    }
+
+    #main-content::before {
+        content: "";
+        position: absolute;
+        background-color: transparent;
+        top: 0%;
+        left: 16.7%;
+        height: 25%;
+        width: 50px;
+        border-top-left-radius: 30px;
+        box-shadow: 0px -30px 0 0px #40189D;
+    }
+
+    .card {
+        color: #FFFFFF;
+    }
+
+    .search-list {
+        position: absolute;
+        background-color: #888;
+        width: 10%;
+        text-align: center;
+        height: 5%;
+        margin: 5px;
+        padding: 5px;
+        border-radius: 50px;
+        color: white;
+    }
+
+        .search-list:hover {
+            background-color: #40189d;
+        }
+
+    .mainDiv {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .containerdiv {
+        box-shadow: 1px 1px 6px 1px #1c1c1c;
+        border-radius: 10px;
+        padding: 10px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .detailsDiv {
+        box-shadow: 1px 1px 8px 1px #3f3939b5;
+        margin-left: 5px;
+    }
+</style>
+    <div class="container-fluid">
+        <div class="row flex-nowrap">
+           
+            <div class="col py-3 " id="main-content">
+                <div class="row">
+
+                    <nav class="navbar navbar-expand-lg navbar-light ">
+                        <div class="col-md-3">
+                            <img class="img-fluid px-3" src="~/adminimages/images/ic_menu.png">
+                            <a class="navbar-brand mx-auto px-3" href="#">JobSeekers</a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidebar-div" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="input-group rounded-pill  bg-light">
+                                <button type="button" class="btn ">
+                                    <i class="bi bi-search"></i>
+                                </button>
+                                <div class="form-outline bg-light">
+                                    <input type="search" id="form1" class="form-control bg-light border-0" placeholder="Search something here" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                        </div>
+                        <div class="col-md-3">
+                            <ul class="navbar-nav  mt-2 mt-lg-0">
+                                <li class="nav-item active">
+                                    <img class="img-fluid" src="~/adminimages/images/notification.png">
+                                </li>
+                                <li class="nav-item">
+                                    <img class="img-fluid" src="~/adminimages/images/noti.png">
+                                </li>
+                                <li class="nav-item">
+                                    <img class="img-fluid" src="~/adminimages/images/profile.png">
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <p><span style="position: absolute;color: #40189d;"><a href="#" style="text-decoration: none;color: #40189d;"> Search Job</a> /</span> <span style="position: absolute;color: #888;margin-left: 95px;">Companies</span></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <input type="text" style="position: absolute;margin-top: 1%;height: 6%;width: 80%;" placeholder="       Search by Title, Company or any jobs keyword...">
+                        <img src="~/adminimages/images/btnFilter.png" style="position: absolute;margin-left: 55%;width: 8%;height: 4%;margin-top: 1.5%;">
+                        <img src="~/adminimages/images/btnSearch.png" style="position: absolute;margin-left: 65%;width: 8%;height: 4%;margin-top: 1.5%;">
+                    </div>
+                </div>
+                <div class="row" style="margin-left: 8%;margin-top: 7%;">
+                    <div class="col-md-2">
+                        <p style="position: absolute;margin-top: 1%;">Suggestions</p>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="search-list">
+                            <p>Location</p>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="search-list">
+                            <p>qualifiaction</p>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="search-list">
+                            <p>skill</p>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="search-list">
+                            <p>experience</p>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                    </div>
+                </div>
+
+                <div>
+@*                    <img src="~/adminimages/images/titleBar.png" style="position: absolute;margin-top: 6%;width: 80%;">
+*@                </div>
+                <br /><br /> <br /><br />
+
+                <div class="row mainDiv">
+                    <div class="containerdiv col-md-10">
+                        @foreach (var job in Model)
+                        {
+
+                            <div class="col-md-3 detailsDiv p-3">
+                                <img src="" /><br>
+                                <b> @job.FirstName </b><br>
+                                <b> @job.Designation </b><br>
+                                <b> @job.Phone </b><br>
+                                <b> @job.Email </b><br><br>
+                             
+                                <input type="button" value="View" class="btn btn-primary">
+
+                            </div>
+                        }
+                    </div>
+
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
