@@ -7,5 +7,6 @@ namespace Mvc_HireMeNow.Interfaces
 	{
 		public List<Application> GetAll(Guid userId);
 		public void AddApplication(Guid userId, Guid jobId);
+		
 	}
 }

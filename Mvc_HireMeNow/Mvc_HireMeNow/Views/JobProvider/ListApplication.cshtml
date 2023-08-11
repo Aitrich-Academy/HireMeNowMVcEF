@@ -1,0 +1,197 @@
+﻿@model IEnumerable<Mvc_HireMeNow.Models.Application>
+
+@{
+    ViewData["Title"] = "ListApplication";
+    Layout = "~/Views/Shared/_JobProviderLayout.cshtml";
+}
+
+<link href="~/publicassets/css/home.css" rel="stylesheet" />
+<style>
+    .jobData{
+        /*width: 80%;*/
+    }
+
+    .btn-apply {
+        width: -webkit-fill-available;
+        height: 40px;
+    }
+
+    .job-card {
+        /*width: 60%;*/
+        margin:  auto;
+        margin-bottom: 13px;
+        padding: 10px;
+        box-shadow: 3px 4px 17px 0px #504d4d7d;
+    }
+
+       /* .job-card :hover {
+       
+        box-shadow: 3px 4px 17px 0px #504d4d7d;
+    }*/
+    .applySection{
+        display: flex;
+        align-content: center;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .logoDiv{
+        display: flex;
+        align-content: center;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .jobListDiv{
+        justify-content: center;
+    }
+
+    progress {
+        width: 100%;
+        height: 8px;
+        background-color: #ddd;
+        border: none;
+        border-radius: 5px;
+        margin-top:5px;
+    }
+
+        progress::-webkit-progress-bar {
+            background-color: #ddd;
+            border-radius: 5px;
+        }
+
+        progress::-webkit-progress-value {
+            background-color: #4CAF50;
+            border-radius: 5px;
+        }
+
+    .JobWrapper {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .tags{
+        flex-wrap: wrap
+    }
+
+    .progressSpan{
+        font-size: small;
+    }
+   
+</style>
+<div>
+    <h1 align="center">
+        <font size="6" face="system-ui" color="black" align="center">
+            <b>Find your </b>
+        </font>
+        <font size="6" face="system-ui" color="#20a6fc" align="center">
+            <b>dream job </b>
+        </font>
+    </h1>
+    <p align="center">
+        <font face="arial">Find your next career at companies like HubSpot, Nike, and Dropbox</font>
+    </p>
+    <h2 align="center" color="#3487bf">All Applications</h2>
+    <div class="row jobListDiv" >
+
+        <div class="left col-md-8 scroll">
+            @foreach (var app in Model)
+            {
+                <div class="job-card" style="">
+                <div width="" class="JobWrapper">
+                        <div align="center" class="col-md-2 logoDiv">
+                          
+                            <img src="~/publicassets/images/google symbol.png" width="50px" alt="Google" title="Google" height="50px">
+                    </div>
+                    <div class="col-md-8 jobData">
+                        <b >
+                            <font size="5px" color="#3487bf">@app.Job.Title </font>
+                        </b>
+                        <br>
+                       
+                        <div>
+                          company: <b>@app.Job.Company</b> <br>
+                           Location: <b>@app.Job.Location</b> <br>
+                        
+
+                        </div>
+                        <br>
+                        <div class="">
+
+                            <div class="row tags">
+                                <div class="fulltime"> Full Time </div>
+                                <div class="marketing"> <b>Marketing</b> </div>
+                                <div class="design"> Designing </div>
+                            </div>  
+
+                        </div>
+                        <br>
+
+                    </div>
+              @*      <div class="col-md-2 applySection">
+                            <form method="post">
+                               
+                                @{
+                                    if (TempData["UserId"] == null)
+                                    {
+                                        TempData["Id"] = job.Id;
+                                       
+                                        <input type="hidden" name="parameter" value="@job.Id" />
+                                        <input type="submit" class="btn btn-outline-primary btn-apply" value="Apply" asp-page-handler="ButtonClick" >
+                                    }
+                                    else{
+                                        
+                                        <input type="hidden" name="parameter" value="@job.Id" />
+                                        <input type="submit" class="btn btn-outline-primary btn-apply" value="Apply" asp-page-handler="ButtonClick" >
+                                    }
+
+                            }
+                        </form>
+                      
+
+                            <progress id="progressBar" value=@job.AppliedCount max=@job.VacanciesCount></progress>
+                            <span class="progressSpan">@job.AppliedCount applied of @job.VacanciesCount capacity</span>
+                    </div>*@
+                 <div class="col-md-2 applySection">
+                            @using (Html.BeginForm("InterviewShedule", "JobProvider", FormMethod.Post))
+                               
+                               
+                                    if (TempData["CompanyId"] == null)
+                                    {
+                                        TempData["Id"] = app.Id;
+                                       
+                                        <input type="hidden" name="parameter" value="@app.Id" />
+                                        <input  type="submit" class="btn btn-outline-primary btn-apply" value="Shedule" asp-page-handler="ButtonClick">
+                                    }
+                                    else{
+                                        
+                                        <input type="hidden" name="parameter" value="@app.Id" />
+                                        <input type="submit" class="btn btn-outline-primary btn-apply" value="Shedule"  >
+                                                    //<a asp-page="InterviewShedule"  class="btn btn-outline-primary btn-apply" asp-route-id="@app.Id">Schedule Interview</a>
+        
+
+                                    }
+
+                            
+                    
+                      
+                </div>
+
+                    </div>
+                </div>
+               
+            }
+           
+           
+            
+        </div>
+        </div>
+
+
+
+
