@@ -18,7 +18,8 @@ namespace Mvc_HireMeNow.Extensions
 			
 			services.AddScoped<IPublicService, PublicService>();
 			services.AddScoped<IUserRepository, UserRepository>();
-
+			services.AddScoped<IAdminService, Adminservice>();
+			
 			services.AddScoped<IUserService, UserService>();
 			services.AddScoped<IJobService, JobService>();
 			services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
