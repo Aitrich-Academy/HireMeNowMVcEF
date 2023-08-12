@@ -48,7 +48,7 @@ namespace Mvc_HireMeNow.Repositories
 		}
 		public Application GetApplication(Guid appid)
 		{
-			return _context.Applications.FirstOrDefault(e => e.Id == appid);
+			return _context.Applications.Where(e => e.Id == appid).Include(a => a.Job).Include(b => b.User).Include(c=>c.Company).FirstOrDefault();
 		}
 	}
 }

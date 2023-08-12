@@ -5,6 +5,7 @@
 		public Guid Id { get; set; }
 		public Guid JobId { get; set; }
 		public Guid CompanyId { get; set; }
+		public Guid? JobseekerId { get; set; }
 		//public string Post { get; set; }
 		public DateTime Date { get; set; }
 		public string Location { get; set; }

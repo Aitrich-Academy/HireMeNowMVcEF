@@ -28,7 +28,8 @@ namespace Mvc_HireMeNow.Extensions
 			services.AddScoped<IApplicationRepository, ApplicationRepository>();
 			services.AddScoped<ICompanyService, CompanyService>();
 			services.AddScoped<ICompanyRepository, CompanyRepository>();
-
+			services.AddScoped<IInterviewRepository, InterviewRepository>();
+			services.AddScoped<IInterviewServices, InterviewServices>();
 			return services;
 			 
 		}

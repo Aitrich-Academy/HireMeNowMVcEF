@@ -115,7 +115,7 @@
                         <br>
                        
                         <div>
-                          company: <b>@app.Job.Company</b> <br>
+                          company: <b>@app.Job.Company.Name</b> <br>
                            Location: <b>@app.Job.Location</b> <br>
                         
 
@@ -158,7 +158,7 @@
                             <span class="progressSpan">@job.AppliedCount applied of @job.VacanciesCount capacity</span>
                     </div>*@
                  <div class="col-md-2 applySection">
-                            @using (Html.BeginForm("InterviewShedule", "JobProvider", FormMethod.Post))
+                            @using (Html.BeginForm("InterviewShedule", "JobProvider", FormMethod.Get))
                                
                                
                                     if (TempData["CompanyId"] == null)
