@@ -15,15 +15,20 @@ namespace Mvc_HireMeNow.Controllers
 		IJobRepository _jobRepository;
 		IUserRepository _userRepository;
 		IApplicationRepository _applicationRepository;
-		public JobProviderController(IMapper mapper, IJobRepository jobRepository,IUserRepository userRepository,IApplicationRepository applicationRepository)
+        private readonly IJobProvider _jobProvider;
+        private readonly IJobService _jobService;
+
+        public JobProviderController(IMapper mapper, IJobRepository jobRepository,IUserRepository userRepository,IApplicationRepository applicationRepository, IJobProvider jobProvider, IJobService jobService)
 		{
 			_mapper = mapper;
 			_jobRepository = jobRepository;
 			_userRepository = userRepository;
 			_applicationRepository = applicationRepository;
-		
+            _jobProvider = jobProvider;
+            _jobService = jobService;
 
-		}
+
+        }
 
 		public IActionResult Index()
 		{
@@ -87,8 +92,12 @@ namespace Mvc_HireMeNow.Controllers
 
 			return View();
 		}
-
-		[HttpGet]
+        public IActionResult SheduledInterviewList()
+        {
+            List<Interview> sheduledinterviewlist = _jobProvider.sheduledinterviewlist();
+            return View(sheduledinterviewlist);
+        }
+        [HttpGet]
 		public IActionResult ListJobs()
 		{
 			return View();
