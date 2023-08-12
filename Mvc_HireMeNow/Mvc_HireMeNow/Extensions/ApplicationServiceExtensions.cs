@@ -5,6 +5,7 @@ using Mvc_HireMeNow.Repositories;
 using Mvc_HireMeNow.Services;
 using HireMeNowWebApi.Helpers;
 using Mvc_HireMeNow.Data.Repositories;
+using HireMeNow_MVC_Application.Repositories;
 
 namespace Mvc_HireMeNow.Extensions
 {
@@ -19,8 +20,9 @@ namespace Mvc_HireMeNow.Extensions
 			services.AddScoped<IPublicService, PublicService>();
 			services.AddScoped<IUserRepository, UserRepository>();
 			services.AddScoped<IAdminService, Adminservice>();
-			
-			services.AddScoped<IUserService, UserService>();
+			services.AddScoped<IJobProvider, JobProviderServices>();
+            services.AddScoped<IJobProviderRepository, JobProviderRepository>();
+            services.AddScoped<IUserService, UserService>();
 			services.AddScoped<IJobService, JobService>();
 			services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
 			services.AddScoped<IJobRepository, JobRepository>();
