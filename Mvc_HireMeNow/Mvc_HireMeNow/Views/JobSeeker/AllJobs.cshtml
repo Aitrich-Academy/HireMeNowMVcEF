@@ -221,6 +221,7 @@
 				<br><br>
 			<h2>@selectedJob?.Title</h2>
 			<h2 class="clr-code-text">@selectedJob?.Description</h2>
+			<h2>@selectedJob?.Company?.Name</h2>
 				<div class="job-specs">
 					<div class="spec">
 						<i>Type of employment </i><br>
@@ -264,7 +265,7 @@
 					</ul>
 					<div class="tab-content">
 						<div class="tab-pane fade show active" id="company">
-							<h4>Company</h4>
+							<h4>@selectedJob.Company.Name</h4>
 							<p>@selectedJob?.Company?.About</p>
 						</div>
 						<div class="tab-pane fade" id="job-description">

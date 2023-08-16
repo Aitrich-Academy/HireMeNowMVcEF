@@ -11,13 +11,15 @@ namespace Mvc_HireMeNow.Controllers
 	{
 
 		private readonly ICompanyService _companyService;
+		public readonly IUserRepository _userRepository;
 		IMapper _mapper;
 		private readonly ICompanyRepository _companyRepository;
-		public CompanyController(ICompanyService companyService, IMapper mapper, ICompanyRepository companyRepository)
+		public CompanyController(ICompanyService companyService, IMapper mapper, ICompanyRepository companyRepository, IUserRepository userRepository)
 		{
 			_companyService = companyService;
 			_mapper = mapper;
 			_companyRepository = companyRepository;
+			_userRepository = userRepository;
 		}
 		[HttpGet]
 		public ActionResult CompanyRegistration()
@@ -83,5 +85,30 @@ namespace Mvc_HireMeNow.Controllers
 				return View();
 			}
 		}
+		[HttpGet]
+		public ActionResult ListCompanyMembers()
+		{
+			var CmpId = HttpContext.Session.GetString("CompanyId");
+			List<User> companyMembers = _userRepository.memberListing(new Guid(CmpId));
+
+			return View(companyMembers);
+		}
+		[HttpGet]
+		public ActionResult RemoveCompanyMember()
+		{
+			return View();
+		}
+		[HttpPost]
+		public ActionResult RemoveCompanyMember(UserDto userdto)
+		{
+			var userid = userdto.Id;
+			_userRepository.memberDeleteById(userid,userdto.FirstName);
+			return View();
+
+		}
+
+
+
 	}
+
 }

@@ -6,6 +6,8 @@ using Mvc_HireMeNow.Interfaces;
 using Mvc_HireMeNow.Models;
 using System.Threading.Tasks.Dataflow;
 using Microsoft.CodeAnalysis.Elfie.Diagnostics;
+using Mvc_HireMeNow.Services;
+using System.ComponentModel.Design;
 
 namespace Mvc_HireMeNow.Controllers
 {
@@ -15,18 +17,15 @@ namespace Mvc_HireMeNow.Controllers
 		IJobRepository _jobRepository;
 		IUserRepository _userRepository;
 		IApplicationRepository _applicationRepository;
-        private readonly IJobProvider _jobProvider;
-        private readonly IJobService _jobService;
-
-        public JobProviderController(IMapper mapper, IJobRepository jobRepository,IUserRepository userRepository,IApplicationRepository applicationRepository, IJobProvider jobProvider, IJobService jobService)
+		IInterviewServices _interviewServices;
+		public JobProviderController(IMapper mapper, IJobRepository jobRepository,IUserRepository userRepository,IApplicationRepository applicationRepository,IInterviewServices interviewServices)
 		{
 			_mapper = mapper;
 			_jobRepository = jobRepository;
 			_userRepository = userRepository;
 			_applicationRepository = applicationRepository;
-            _jobProvider = jobProvider;
-            _jobService = jobService;
-
+			_interviewServices = interviewServices;
+		
 
         }
 
@@ -78,30 +77,62 @@ namespace Mvc_HireMeNow.Controllers
 		[HttpGet]
 		public IActionResult InterviewShedule(Guid parameter)
         {
-			var Apps= _applicationRepository.GetApplication(parameter);
+           Application Applications = _applicationRepository.GetApplication(parameter);
+			//Applications.ForEach((e) =>
+			//{
+			//    e.Job = _jobRepository.GetJobById(e.JobId.Value);
 
-			return View(Apps);
+			//});
 
+			//var  users = _userRepository.getById(parameter);
+			InterviewDto interviewDto = new();
+			interviewDto.JobId = (Guid)(Applications?.Job?.Id.Value);
+			
+			ViewBag.jobTitle = Applications.Job.Title;
+		
+			ViewBag.ComapanyId = Applications.CompanyId;
+			interviewDto.JobseekerId = Applications.User.Id;
+			
+			interviewDto.CompanyId = (Guid)Applications.CompanyId;
 
-            
-		}
-		[HttpPost]
-		public IActionResult InterviewShedule(InterviewDto interviewDto)
-		{
+			return View(interviewDto);
 
-
-			return View();
-		}
-        public IActionResult SheduledInterviewList()
-        {
-            List<Interview> sheduledinterviewlist = _jobProvider.sheduledinterviewlist();
-            return View(sheduledinterviewlist);
         }
-        [HttpGet]
+		[HttpPost]
+		public IActionResult InterviewShedule(InterviewDto interviewDto,Guid CompanyId,Guid JobseekerId,Guid JobId)
+		{
+			interviewDto.JobId = JobId;
+			interviewDto.CompanyId = CompanyId;
+			interviewDto.JobseekerId = JobseekerId;
+			
+			var interview = _mapper.Map<Interview>(interviewDto);
+            _interviewServices.sheduleinterview(interview);
+			TempData["Message"] = "Success Fully Added";
+			return View(interviewDto);
+        }
+
+		[HttpGet]
 		public IActionResult ListJobs()
 		{
 			return View();
 		}
+		[HttpGet]
+		public IActionResult SheduledInterviewList()
+		{
+			var cmpId = HttpContext.Session.GetString("CompanyId");
+			List<Interview> sheduledinterviews = _interviewServices.sheduledInterviewList(new Guid(cmpId));
+			if(sheduledinterviews!=null)
+			{
+				
 
+				return View(sheduledinterviews);
+			}
+			else
+			{
+				return BadRequest("no interviews sheduled");
+			}
+			
+		}
+		
 	}
 }

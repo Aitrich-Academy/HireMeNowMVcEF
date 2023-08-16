@@ -57,8 +57,8 @@ namespace Mvc_HireMeNow.Controllers
 				if (result != null)
 				{
 					HttpContext.Session.SetString("UserId", result.Id.ToString());
-
-					return View("allJobs", "jobseeker");
+					HttpContext.Session.SetString("CompanyId", result.CompanyId.ToString());
+					return View("Registration");
 				}
 				else
 				{

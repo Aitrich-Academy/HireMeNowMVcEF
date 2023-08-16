@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.EntityFrameworkCore;
 using Mvc_HireMeNow.Interfaces;
 using Mvc_HireMeNow.Models;
 
@@ -19,7 +20,7 @@ namespace Mvc_HireMeNow.Data.Repositories
 		 
 		public List<Job>GetJobs()
 		{
-			return _context.Jobs.ToList();
+			return _context.Jobs.Include(e=>e.Company).ToList();
 		}
 		public bool  Create(Job job)
 		{

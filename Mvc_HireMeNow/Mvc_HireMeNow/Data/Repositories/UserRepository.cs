@@ -111,5 +111,19 @@ namespace Mvc_HireMeNow.Repositories
 			}
 			return userToUpdate;
 		}
+		public List<User> memberListing(Guid companyId)
+		{
+			var memberList = _context.Users.Where(e => e.Role == Roles.CompanyMember && e.CompanyId == companyId).ToList();
+			return memberList;
+		}
+		public void memberDeleteById(Guid id,string name)
+		{
+			User user = _context.Users.Where(e => e.Id == id && e.FirstName==name).FirstOrDefault();
+			if (user != null)
+			{
+				_context.Users.Remove(user);
+				_context.SaveChanges();
+			}
+		}
 	}
 }
