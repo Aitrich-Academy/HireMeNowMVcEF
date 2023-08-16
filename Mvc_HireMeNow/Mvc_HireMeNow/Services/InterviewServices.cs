@@ -7,26 +7,26 @@ namespace Mvc_HireMeNow.Services
 {
 	public class InterviewServices : IInterviewServices
 	{
-		public IInterviewRepository interviewRepository;
+		public IInterviewRepository _interviewRepository;
 
 		public InterviewServices(IInterviewRepository interviewRepository)
 		{
-			this.interviewRepository = interviewRepository;
+		   _interviewRepository = interviewRepository;
 		}
 
 		public void removeInterview(Guid id)
 		{
-			interviewRepository.removeInterview(id);
+			_interviewRepository.removeInterview(id);
 		}
 
-		public List<Interview> sheduledInterviewList()
+		public List<Interview> sheduledInterviewList(Guid CmpID)
 		{
-			return interviewRepository.sheduledInterviewList();
+			return _interviewRepository.sheduledInterviewList(CmpID);
 		}
 
 		public Interview sheduleinterview(Interview interview)
 		{
-			return interviewRepository.shduleInterview(interview);
+			return _interviewRepository.shduleInterview(interview);
 		}
 	
 	}

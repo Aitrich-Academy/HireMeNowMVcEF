@@ -27,7 +27,7 @@ namespace Mvc_HireMeNow.Controllers
 			_interviewServices = interviewServices;
 		
 
-		}
+        }
 
 		public IActionResult Index()
 		{
@@ -116,6 +116,23 @@ namespace Mvc_HireMeNow.Controllers
 		{
 			return View();
 		}
+		[HttpGet]
+		public IActionResult SheduledInterviewList()
+		{
+			var cmpId = HttpContext.Session.GetString("CompanyId");
+			List<Interview> sheduledinterviews = _interviewServices.sheduledInterviewList(new Guid(cmpId));
+			if(sheduledinterviews!=null)
+			{
+				
 
+				return View(sheduledinterviews);
+			}
+			else
+			{
+				return BadRequest("no interviews sheduled");
+			}
+			
+		}
+		
 	}
 }

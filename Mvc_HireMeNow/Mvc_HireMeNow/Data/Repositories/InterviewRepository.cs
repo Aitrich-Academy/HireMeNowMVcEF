@@ -1,6 +1,8 @@
-﻿using Mvc_HireMeNow.Enums;
+﻿using Microsoft.EntityFrameworkCore;
+using Mvc_HireMeNow.Enums;
 using Mvc_HireMeNow.Interfaces;
 using Mvc_HireMeNow.Models;
+using System.ComponentModel.Design;
 
 namespace Mvc_HireMeNow.Repositories
 {
@@ -30,20 +32,16 @@ namespace Mvc_HireMeNow.Repositories
 			return interview;
 		}
 
-		public List<Interview> sheduledInterviewList()
+	
+		public List<Interview> sheduledInterviewList(Guid CmpId)
 		{
-			throw new NotImplementedException();
+			var shedule = _context.Interviews.Where(e => e.CompanyId == CmpId).Include(e=>e.Job).ToList();
+			return shedule;
 		}
-		//public List<Interview> sheduledInterviewList()
-		//{
-		//	//List<Interview> listofinterviews = interviews.ToList()
-		//	//return listofinterviews;
-		//	return interview;
-		//}
 		//public void removeInterview(Guid id)
 		//{
 		//	Interview interview = interviews.FirstOrDefault(e => e.Id == id);
-		//	if(interview!=null)
+		//	if (interview != null)
 		//	{
 		//		interviews.Remove(interview);
 		//	}

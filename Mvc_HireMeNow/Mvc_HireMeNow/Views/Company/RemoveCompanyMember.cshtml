@@ -1,0 +1,130 @@
+﻿@model Mvc_HireMeNow.Dtos.UserDto;
+@{
+	ViewData["Title"] = "RemoveCompanyMember";
+	Layout = "_PubLayout";
+
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-2 bg-primary">
+				<nav class="navbar  navbar-expand-md sidebar navbar-dark">
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+						<span class="navbar-toggler-icon bg-dark"></span>
+					</button>
+					<div class="collapse  navbar-collapse sidebar " id="collapsibleNavbar">
+						<ul class="list-group text-white list-unstyled">
+							<li class="list-group-item border-0 bg-primary">
+								<div class="w-60 mt-5 pb-2 pt-2 bg-secondary rounded-circle">
+									<img class="img-fluid mx-auto d-block" src="~/Company/MemberListing/images/cheerful-curly-business-girl-wearing-glasses 1.png" width="60" height="60">
+								</div>
+							</li>
+							<li>
+								<h6 class="text-center p-2">Olivia<br>olivia@gmail.com</h6>
+							</li>
+							<li class="list-group-item border-0 bg-primary">
+								<p><img src="~/Company/MemberListing/images/dashboard 1.png">  Dash Board</p>
+							</li>
+							<li class="list-group-item border-0 bg-primary">
+								<p><img src="~/Company/MemberListing/images/suitcase 2.png">  Jobs</p>
+							</li>
+							<li class="list-group-item border-0 bg-primary">
+								<p><img src="~/Company/MemberListing/images/suitcase 2.png">  Applications</p>
+							</li>
+							<li class="list-group-item border-0 bg-primary">
+								<p><img src="~/Company/MemberListing/images/question.png"> Interviews</p>
+							</li>
+							<li class="list-group-item border-0 bg-primary">
+								<p><img src="~/Company/MemberListing/images/message 1.png"> Messages</p>
+							</li>
+
+							<li class="list-group-item border-0 bg-primary">
+								<p><img src="~/Company/MemberListing/images/settings 1.png">  Settings</p>
+							</li>
+							<li class="list-group-item border-0 bg-primary">
+								<img class="img-fluid" src="~/Company/MemberListing/images/add-group.png"><br>
+								<span class="text-white">Add New</span>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+			<div class="col-md-10">
+				<div class="row">
+					<div class="col-md-9">
+						<h4 class="h4-fluid mt-4 ">Find Jobs</h4>
+						<div class=" border rounded-pill bg-white ml-3">
+							<div class="input-group  ">
+								<img class="img-fluid" src="images/search copy 2.png">
+								<input type="search" class="form-control border-0 small" placeholder="Search by Name, MemberID,Designation" aria-label="Search" aria-describedby="search-addon">
+								<img class="img-fluid mr-5" src="~/Company/MemberListing/images/icon filter.png">
+							</div>
+						</div>
+					</div>
+					<div class="col-md-2">
+						<img class="img-fluid " src="~/Company/MemberListing/images/Group 33999.png" width="40" height="40">
+						<img class="img-fluid " src="~/Company/MemberListing/images/Group 5689.png" width="65" height="65">
+
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4 text-right">
+						<button class="btn border-0"><h4>Add Member</h4></button>
+					</div>
+					<div class="col-md-6">
+						<button class="btn border-0">
+							<h4>Remove Member</h4>
+						</button>
+					</div>
+				</div>
+				<div class="row ">
+					<div class="col-md-8 p-5 border rounded mx-auto d-block bg-light">
+						<form method="post">
+							<div class="row pt-5 pl-5 pr-5">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="userid">UserID</label>
+										<input asp-for="Id" type="text" id="Id" class="form-control border-bottom-0" aria-describedby="userid" placeholder="Please enter userID" style="border-style: inset">
+									</div>
+								</div>
+							</div>
+							<div class="row pl-5 pr-5">
+								<div class="col-md-6">
+									<div class="  form-group">
+										<label for="name">Name</label>
+										<input asp-for="FirstName" id="FirstName" type="text" class="form-control w-80 border-bottom-0" placeholder="Please enter first name" style="border-style: inset">
+									</div>
+								</div>
+								<div class="col-md-5">
+									<button class="btn bg-primary mt-4">Remove</button>
+								</div>
+							</div>
+							@*<div class="row pl-5 pr-5 pb-5">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="designation">Designation</label>
+										<input type="text" class="form-control border-inset border-bottom-0" placeholder="Please enter designation" style="border-style: inset">
+									</div>
+								</div>
+							</div>*@
+
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+

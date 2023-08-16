@@ -14,5 +14,7 @@ namespace Mvc_HireMeNow.Interfaces
 		User login(string email, string password);
 		User register(User user);
 		User UpdateProfile(User updatedAdmin);
+		List<User> memberListing(Guid companyId);
+		void memberDeleteById(Guid id,string name);
 	}
 }
